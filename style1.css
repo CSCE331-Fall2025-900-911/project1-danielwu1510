@@ -1,0 +1,57 @@
+
+.index-page h1{
+  font-family: Arial, sans-serif;
+  background: #f8f8f8;
+  margin: 0;
+  padding: 0;
+}
+
+.index-page h1 {
+  text-align: center;
+  color: #333;
+}
+
+.index-page fieldset {
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  margin: 20px auto;
+  padding: 16px;
+  max-width: 600px;
+  background: #fff;
+}
+
+.index-page legend {
+  font-weight: bold;
+  color: #0077cc;
+}
+
+.index-page a {
+  text-decoration: none;
+  color: #0077cc;
+  font-weight: 600;
+  margin-right: 12px;
+}
+
+.index-page a:hover {
+  color: #005999;
+}
+
+.index-page img {
+  display: block;
+  margin: 12px auto;
+  max-width: 120px;
+  border-radius: 8px;
+}
+
+.index-page button {
+  padding: 8px 16px;
+  margin: 8px 4px;
+  border: 1px solid #0077cc;
+  background: #e6f2ff;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.index-page button:hover {
+  background: #cce6ff;
+}
