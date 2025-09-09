@@ -1,4 +1,3 @@
-
 .index-page h1{
   font-family: Arial, sans-serif;
   background: #f8f8f8;
@@ -11,37 +10,43 @@
   color: #333;
 }
 
-.index-page fieldset {
-  border: 2px solid #ccc;
-  border-radius: 8px;
+.index-page .top-section, .middle-section, .bottom-section {
+  /* border property removed */
   margin: 20px auto;
   padding: 16px;
-  max-width: 600px;
+  max-width: 800px; /* Increased max-width for better spacing */
   background: #fff;
+  text-align: center; 
 }
 
-.index-page legend {
-  font-weight: bold;
-  color: #0077cc;
+/* NEW styles for the top section layout */
+.top-section {
+    display: flex;
+    justify-content: space-between; /* Pushes items to ends */
+    align-items: center; /* Vertically aligns items */
 }
+
+/* Make top section image smaller */
+.top-section img {
+    max-width: 80px;
+    margin: 0; /* Remove auto margin to align left */
+}
+
+.top-section nav a {
+  margin: 0 8px; /* Add some space between nav links */
+}
+
 
 .index-page a {
   text-decoration: none;
   color: #0077cc;
   font-weight: 600;
-  margin-right: 12px;
 }
 
 .index-page a:hover {
   color: #005999;
 }
 
-.index-page img {
-  display: block;
-  margin: 12px auto;
-  max-width: 120px;
-  border-radius: 8px;
-}
 
 .index-page button {
   padding: 8px 16px;
@@ -54,4 +59,15 @@
 
 .index-page button:hover {
   background: #cce6ff;
+}
+
+/* NEW styles for the bottom section layout */
+.bottom-section {
+    display: flex; 
+    justify-content: space-between; /* Pushes items to ends */
+    align-items: center; /* Vertically aligns items */
+}
+
+.functions, .social-media {
+    width: 48%; 
 }
