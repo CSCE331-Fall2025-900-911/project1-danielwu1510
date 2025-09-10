@@ -1,73 +1,179 @@
-.index-page h1{
-  font-family: Arial, sans-serif;
-  background: #f8f8f8;
+/* --- Google Font Import --- */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Caveat:wght@700&display=swap');
+
+/* --- General & Body Styles --- */
+body.index-page {
+  font-family: 'Poppins', sans-serif;
   margin: 0;
   padding: 0;
+  background-color: #F4F7FC; /* Light gray background */
+  color: #2D3748; /* Dark text for readability */
+  overflow-x: hidden; /* Prevents horizontal scrolling */
 }
 
-.index-page h1 {
-  text-align: center;
-  color: #333;
+/* --- Section Styling --- */
+.index-page .top-section, 
+.index-page .middle-section, 
+.index-page .bottom-section {
+  padding: 20px 5%; /* Use percentage for responsive padding */
+  max-width: 1100px;
+  margin: 0 auto; /* Center the content */
+  box-sizing: border-box;
 }
 
-.index-page .top-section, .middle-section, .bottom-section {
-  /* border property removed */
-  margin: 20px auto;
-  padding: 16px;
-  max-width: 800px; /* Increased max-width for better spacing */
-  background: #fff;
-  text-align: center; 
-}
-
-/* NEW styles for the top section layout */
+/* --- Top Section (Header) --- */
 .top-section {
-    display: flex;
-    justify-content: space-between; /* Pushes items to ends */
-    align-items: center; /* Vertically aligns items */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 30px;
+  padding-bottom: 30px;
 }
 
-/* Make top section image smaller */
 .top-section img {
-    max-width: 80px;
-    margin: 0; /* Remove auto margin to align left */
+  width: 70px;
+  height: 70px;
+  border-radius: 50%; /* Makes the image circular */
+  border: 3px solid #E53E3E; /* Red accent color border */
+  transition: transform 0.3s ease;
+}
+
+.top-section img:hover {
+  transform: scale(1.1); /* Slight zoom on hover */
 }
 
 .top-section nav a {
-  margin: 0 8px; /* Add some space between nav links */
-}
-
-
-.index-page a {
   text-decoration: none;
-  color: #0077cc;
+  color: #2D3748;
   font-weight: 600;
+  margin: 0 15px;
+  position: relative;
+  transition: color 0.3s ease;
 }
 
-.index-page a:hover {
-  color: #005999;
+.top-section nav a:after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  display: block;
+  margin-top: 5px;
+  right: 0;
+  background: #E53E3E; /* Red accent color for underline */
+  transition: width 0.4s ease;
 }
 
-
-.index-page button {
-  padding: 8px 16px;
-  margin: 8px 4px;
-  border: 1px solid #0077cc;
-  background: #e6f2ff;
-  border-radius: 4px;
-  cursor: pointer;
+.top-section nav a:hover:after {
+  width: 100%;
+  left: 0;
+  background: #E53E3E;
 }
 
-.index-page button:hover {
-  background: #cce6ff;
+.top-section nav a:hover {
+    color: #E53E3E;
 }
 
-/* NEW styles for the bottom section layout */
+/* --- Middle Section (Name Card) --- */
+.middle-section {
+  position: relative; /* Establishes positioning context for child elements */
+  max-width: 600px; /* Made the card even smaller */
+  aspect-ratio: 16 / 9; /* Enforces a 16:9 ratio */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: #FFFFFF; /* White background for the card */
+  border-radius: 12px;
+  margin: 40px auto; /* Centered with top/bottom margin */
+  padding: 0; /* Remove padding to make borders flush */
+  border-top: 60px solid #E53E3E; /* Thick red top border */
+  border-bottom: 30px solid #E53E3E; /* Red bottom border */
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.middle-section h2 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 1.2rem;
+  color: #FFFFFF; /* White text on red background */
+  margin: 0;
+  position: absolute;
+  top: -42px; /* Position it inside the top red border */
+  width: 100%; /* Take full width of the parent */
+  left: 0;
+  text-align: center; /* Center the text */
+  text-transform: uppercase;
+}
+
+.middle-section h1 {
+  font-family: 'Caveat', cursive; /* Handwritten font */
+  /* Using clamp() for responsive font size that scales with the card */
+  font-size: clamp(3rem, 12vw, 7rem); 
+  font-weight: 700;
+  color: #2D3748; /* Dark text color */
+  letter-spacing: 1px;
+  margin: 0; /* Reset margin */
+  padding: 0 25px 20px 25px; /* Add horizontal padding */
+  /* Reset gradient text styles */
+  background: none;
+  -webkit-background-clip: unset;
+  -webkit-text-fill-color: unset;
+  line-height: 1; /* Prevents extra spacing from large font */
+}
+
+/* --- Bottom Section (Functions & Socials) --- */
 .bottom-section {
-    display: flex; 
-    justify-content: space-between; /* Pushes items to ends */
-    align-items: center; /* Vertically aligns items */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap; 
+  gap: 20px;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  border-top: 1px solid #CBD5E0; /* Lighter separator line */
 }
 
 .functions, .social-media {
-    width: 48%; 
+  flex: 1; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px; 
 }
+
+.index-page button {
+  font-family: 'Poppins', sans-serif;
+  background-color: #E53E3E; /* Red buttons */
+  color: #FFFFFF; /* White text */
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.index-page button:hover {
+  background-color: #C53030; /* Darker red on hover */
+  transform: translateY(-3px); 
+  box-shadow: 0 4px 15px rgba(229, 62, 62, 0.3);
+}
+
+/* Style social media buttons as icons */
+.social-media button {
+  background: none;
+  padding: 0;
+  border: none;
+}
+
+.social-media img {
+  width: 40px;
+  height: 40px;
+  filter: grayscale(100%); /* Make icons black and white */
+  transition: filter 0.3s ease, transform 0.3s ease;
+}
+
+.social-media img:hover {
+  filter: grayscale(0%); /* Shows original color on hover */
+  transform: scale(1.2);
+}
+
