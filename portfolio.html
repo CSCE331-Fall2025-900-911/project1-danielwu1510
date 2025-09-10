@@ -1,32 +1,81 @@
 <html>
   <head>
     <title>Technical Portfolio</title>
+    <link rel="stylesheet" href="style1.css">
   </head>
-  <body>
-        <!--Top section and Tabs-->
-    <fieldset>
-        <legend>Navigation Tabs and Image</legend>
-        <a href = "index.html">Home</a>&nbsp;
-        <a href = "portfolio.html">Technical Portfolio</a>&nbsp;
-        <a href = "qualifications.html">Qualifications</a>&nbsp;
-        <a href = "service.html">Service</a>&nbsp;
-        <a href = "genai.html">AI-Generated</a>
-    </fieldset>
-    <!-- Top Section: Project Display Area -->
-    <fieldset>
-      <legend>Selected Project (Sample) </legend>
-      <h2>Seam Carving Coding Project</h2>
-      <p>●	Designed and coded a program that calculated for the importance of different pixels in an image and cropped/resized the image by prioritizing the important sections of said image</p>
-      <img src="https://live.staticflickr.com/55/147874576_8a453079f3_b.jpg" height="300" width="400" alt="Seam Carving Example">
-    </fieldset>
+  <body class="portfolio-page">
+    <!-- Navigation (matches index.html) -->
+    <div class="top-section">
+      <img src="https://static.vecteezy.com/system/resources/thumbnails/005/544/718/small_2x/profile-icon-design-free-vector.jpg" alt="Profile Picture">
+      <nav>
+          <a href = "index.html">Home</a>
+          <a href = "portfolio.html">Technical Portfolio</a>
+          <a href = "qualifications.html">Qualifications</a>
+          <a href = "service.html">Service</a>
+          <a href = "genai.html">AI-Generated</a>
+      </nav>
+    </div>
 
-    <!-- Bottom Section: Folder Image -->
-    <fieldset>
-      <legend>Choose a Project Folder (Will be made interactive)</legend>
-      <a href="#">
-        <img src="https://cdn-icons-png.flaticon.com/512/716/716784.png" alt="Folder" width="120">
-      </a>
-      <p>Click the folder to select a project.</p>
-    </fieldset>
+    <!-- Main Project Display Area -->
+    <div class="project-display-container">
+        <!-- Project 1 -->
+        <div id="project-1" class="project-content active">
+            <h2>Seam Carving Coding Project</h2>
+            <div class="project-details">
+                <img src="https://live.staticflickr.com/55/147874576_8a453079f3_b.jpg" alt="Seam Carving Example">
+                <p>Designed and coded a program that calculated for the importance of different pixels in an image and cropped/resized the image by prioritizing the important sections of said image. This project demonstrates a deep understanding of algorithms and image manipulation techniques.</p>
+            </div>
+        </div>
+
+        <!-- Project 2 (Add your content here) -->
+        <div id="project-2" class="project-content">
+            <h2>Project Two Title</h2>
+             <div class="project-details">
+                <img src="https://placehold.co/600x400/E53E3E/FFFFFF?text=Project+2" alt="Placeholder for Project 2">
+                <p>This is a description for the second project. You can describe the technologies used, the problems solved, and what you learned from the experience.</p>
+            </div>
+        </div>
+
+        <!-- Project 3 (Add your content here) -->
+        <div id="project-3" class="project-content">
+            <h2>Project Three Title</h2>
+             <div class="project-details">
+                <img src="https://placehold.co/600x400/2D3748/FFFFFF?text=Project+3" alt="Placeholder for Project 3">
+                <p>This is where you can detail your third project. Talk about your role in the project and the outcomes. A link to a GitHub repository can be very effective here.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Interactive Folder Section -->
+    <div class="folder-container">
+        <div class="folder-tabs">
+            <button class="folder-tab active-tab" data-project="project-1">Project 1</button>
+            <button class="folder-tab" data-project="project-2">Project 2</button>
+            <button class="folder-tab" data-project="project-3">Project 3</button>
+        </div>
+        <div class="folder-body">
+            <p>Select a project tab to view details.</p>
+        </div>
+    </div>
+
+    <script>
+      const tabs = document.querySelectorAll('.folder-tab');
+      const projects = document.querySelectorAll('.project-content');
+
+      tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+          // Get the target project from the data attribute
+          const target = tab.getAttribute('data-project');
+          
+          // Deactivate all tabs and projects
+          tabs.forEach(t => t.classList.remove('active-tab'));
+          projects.forEach(p => p.classList.remove('active'));
+
+          // Activate the clicked tab and corresponding project
+          tab.classList.add('active-tab');
+          document.getElementById(target).classList.add('active');
+        });
+      });
+    </script>
   </body>
 </html>

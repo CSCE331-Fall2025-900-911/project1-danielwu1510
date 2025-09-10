@@ -177,3 +177,99 @@ body.index-page {
   transform: scale(1.2);
 }
 
+/* --- PORTFOLIO.HTML SPECIFIC STYLES --- */
+
+/* Align navigation to the right on the portfolio page header */
+.portfolio-page .top-section {
+    justify-content: center;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    
+}
+
+/* Hide the profile image on the portfolio page */
+.portfolio-page .top-section img {
+    display: none;
+}
+
+.project-display-container {
+    max-width: 900px;
+    margin: 40px auto;
+    background: #FFFFFF;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    min-height: 400px; /* Ensures container doesn't collapse */
+}
+
+.project-content {
+    display: none; /* Hide all projects by default */
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.project-content.active {
+    display: block; /* Show only the active project */
+}
+
+.project-details {
+    display: flex;
+    gap: 30px;
+    align-items: flex-start;
+}
+
+.project-details img {
+    max-width: 50%;
+    border-radius: 8px;
+}
+
+.project-display-container h2 {
+    margin-top: 0;
+    border-bottom: 3px solid #E53E3E;
+    padding-bottom: 15px;
+    margin-bottom: 25px;
+}
+
+.folder-container {
+    max-width: 900px;
+    margin: 40px auto;
+}
+
+.folder-tabs {
+    display: flex;
+}
+
+.folder-tab {
+    padding: 10px 20px;
+    border: 1px solid #CBD5E0;
+    background-color: #E2E8F0;
+    cursor: pointer;
+    border-bottom: none;
+    border-radius: 8px 8px 0 0;
+    margin-right: 5px;
+    font-weight: 600;
+    position: relative;
+    bottom: -1px; /* Sits on top of the folder body border */
+    transition: all 0.3s ease;
+    font-family: 'Poppins', sans-serif;
+}
+
+.folder-tab.active-tab {
+    background-color: #FFFFFF;
+    border-top: 3px solid #E53E3E;
+    color: #E53E3E;
+}
+
+.folder-body {
+    background: #FFFFFF;
+    padding: 30px;
+    border: 1px solid #CBD5E0;
+    border-radius: 0 8px 8px 8px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+}
+
+/* Fade in animation for project switching */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
