@@ -183,13 +183,16 @@ body.index-page {
 .portfolio-page .top-section {
     justify-content: center;
     font-family: 'Poppins', sans-serif;
-    font-weight: 600;
-    
+    font-weight: 600;   
 }
 
 /* Hide the profile image on the portfolio page */
 .portfolio-page .top-section img {
     display: none;
+}
+
+body.portfolio-page {
+  font-family: 'Poppins', sans-serif;
 }
 
 .project-display-container {
@@ -204,7 +207,7 @@ body.index-page {
 
 .project-content {
     display: none; /* Hide all projects by default */
-    animation: fadeIn 0.5s ease-in-out;
+    animation: bounce .75s;
 }
 
 .project-content.active {
@@ -273,6 +276,11 @@ body.index-page {
   to { opacity: 1; }
 }
 
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+
 /* --- QUALIFICATIONS.HTML SPECIFIC STYLES --- */
 
 /* Align navigation to the right on the qualifications page header */
@@ -339,56 +347,6 @@ body.qualifications-page {
     line-height: 1.6;
     color: #4A5568; /* Slightly lighter text for description */
     margin: 0;
-}
-
-/* --- QUALIFICATIONS.HTML - ADDITIONAL SECTIONS --- */
-
-.additional-info {
-    margin-top: 60px;
-    padding-top: 40px;
-    border-top: 1px solid #CBD5E0;
-    display: flex;
-    gap: 40px;
-    align-items: center;
-}
-
-.interests-section {
-    flex: 2; /* Takes up 2/3 of the space */
-}
-
-.interests-section h2 {
-    font-size: 1.8rem;
-    margin-top: 0;
-}
-
-.interests-section p {
-    line-height: 1.7;
-    color: #4A5568;
-}
-
-.resume-section {
-    flex: 1; /* Takes up 1/3 of the space */
-    text-align: center;
-}
-
-.resume-button {
-    display: inline-block;
-    font-family: 'Poppins', sans-serif;
-    background-color: #E53E3E;
-    color: #FFFFFF;
-    border: none;
-    padding: 15px 30px;
-    border-radius: 8px;
-    font-weight: 600;
-    cursor: pointer;
-    text-decoration: none;
-    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.resume-button:hover {
-  background-color: #C53030;
-  transform: translateY(-3px); 
-  box-shadow: 0 4px 15px rgba(229, 62, 62, 0.3);
 }
 
 /* --- SERVICE.HTML SPECIFIC STYLES --- */
