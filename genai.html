@@ -1,3 +1,305 @@
 <html>
-    <p>Prompt: Generate an additional webpage for AI-generated content. Keep the theme and design similar to the other webpages linked.</p>
+  <head>
+    <title>Generative AI</title>
+    <!-- All styles for this page are included directly in the HTML file -->
+    <style>
+      /* --- Google Font Import --- */
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+      /* --- General & Body Styles --- */
+      body {
+        font-family: 'Poppins', sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #F4F7FC;
+        color: #2D3748;
+        overflow-x: hidden;
+      }
+
+      /* --- Top Section (Header) --- */
+      .top-section {
+        padding: 20px 5%;
+        max-width: 1100px;
+        margin: 0 auto;
+        box-sizing: border-box;
+        display: flex;
+        justify-content: flex-end; /* Aligns navigation to the right */
+        align-items: center;
+        padding-top: 30px;
+        padding-bottom: 30px;
+      }
+
+      nav a {
+        text-decoration: none;
+        color: #2D3748;
+        font-weight: 600;
+        margin: 0 15px;
+        position: relative;
+        transition: color 0.3s ease;
+      }
+
+      nav a:after {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 2px;
+        display: block;
+        margin-top: 5px;
+        right: 0;
+        background: #E53E3E;
+        transition: width 0.4s ease;
+      }
+
+      nav a:hover:after {
+        width: 100%;
+        left: 0;
+        background: #E53E3E;
+      }
+
+      nav a:hover {
+          color: #E53E3E;
+      }
+
+      /* --- Main Content Area --- */
+      .main-content {
+          max-width: 900px;
+          margin: 40px auto;
+          padding: 0 20px;
+      }
+
+      .ai-hero {
+          text-align: center;
+          padding: 80px 40px;
+          border-radius: 12px;
+          color: #FFFFFF;
+          background: linear-gradient(-45deg, #e53e3e, #dd2476, #23a6d5, #23d5ab);
+          background-size: 400% 400%;
+          animation: gradientBG 15s ease infinite;
+          box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      }
+
+      .ai-hero h1 {
+          margin: 0;
+          font-size: 3rem;
+          font-weight: 700;
+          text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+      }
+
+      .ai-hero .subtitle {
+          margin: 10px 0 0 0;
+          font-size: 1.2rem;
+          font-weight: 300;
+      }
+
+      /* --- Keyframes for the animated background --- */
+      @keyframes gradientBG {
+          0% { background-position: 0% 50%; }
+          50% { background-position: 100% 50%; }
+          100% { background-position: 0% 50%; }
+      }
+
+      .ai-explanation, .about-me {
+          margin: 60px auto;
+          padding: 40px;
+          background: #FFFFFF;
+          border-radius: 12px;
+          box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+      }
+      
+      .ai-explanation h2, .about-me h2 {
+          margin-top: 0;
+          border-bottom: 2px solid #E53E3E;
+          padding-bottom: 10px;
+          margin-bottom: 20px;
+      }
+
+      .ai-explanation p, .about-me p {
+          line-height: 1.8;
+          color: #4A5568;
+      }
+
+      /* --- NEW: AI Playground Section --- */
+      .ai-playground {
+        background-color: #1A202C; /* Dark background */
+        color: #F4F7FC; /* Light text */
+        border-radius: 8px;
+        padding: 30px;
+        margin-top: 60px;
+        border: 1px solid #4A5568;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      }
+
+      .ai-playground h3 {
+        margin-top: 0;
+        font-size: 1.5rem;
+        color: #FFFFFF;
+      }
+
+      #userInput {
+        width: 100%;
+        height: 80px;
+        border-radius: 6px;
+        border: 1px solid #4A5568;
+        background-color: #2D3748;
+        color: #F4F7FC;
+        padding: 10px;
+        font-family: 'Poppins', sans-serif;
+        font-size: 1rem;
+        box-sizing: border-box; /* Important for padding */
+        resize: vertical;
+      }
+
+      #generateBtn {
+        display: block;
+        margin: 20px 0;
+        padding: 12px 25px;
+        border: none;
+        border-radius: 6px;
+        background-color: #00C9B8;
+        color: #1A202C;
+        font-weight: 600;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      #generateBtn:hover {
+        background-color: #00A394;
+      }
+
+      #aiResponse {
+        background-color: #2D3748;
+        border-radius: 6px;
+        padding: 20px;
+        min-height: 50px;
+        line-height: 1.7;
+      }
+      
+      .typing-indicator {
+        display: inline-block;
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background-color: #00C9B8;
+        animation: typing 1s infinite;
+      }
+      
+      @keyframes typing {
+        0%, 100% { opacity: 0; }
+        50% { opacity: 1; }
+      }
+
+
+      /* --- Prompt Box --- */
+      .prompt-box {
+          background-color: #FFFFFF;
+          color: #1A202C;
+          border-radius: 8px;
+          padding: 30px;
+          margin-top: 60px;
+          border: 1px solid #CBD5E0;
+          box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      }
+
+      .prompt-box h3 {
+          margin-top: 0;
+          font-size: 1.2rem;
+          color: #E53E3E;
+      }
+
+      .prompt-box .prompt-text {
+          font-family: 'Courier New', Courier, monospace;
+          line-height: 1.6;
+          font-size: 1rem;
+          white-space: pre-wrap;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Top section and Tabs -->
+    <div class="top-section">
+        <nav>
+            <a href = "index.html">Home</a>
+            <a href = "portfolio.html">Technical Portfolio</a>
+            <a href = "qualifications.html">Qualifications</a>
+            <a href = "service.html">Service</a>
+            <a href = "genai.html">AI-Generated</a>
+        </nav>
+    </div>
+
+    <div class="main-content">
+        <!-- AI Hero Section -->
+        <div class="ai-hero">
+            <h1>The Power of Generative AI</h1>
+            <p class="subtitle">Exploring the creative frontier of artificial intelligence.</p>
+        </div>
+
+        <!-- Explanation Section -->
+        <div class="ai-explanation">
+            <h2>What is Generative AI?</h2>
+            <p>Generative Artificial Intelligence represents a significant leap in AI capabilities, focusing on creating new, original content rather than just analyzing or processing existing data. Models like GPT (Generative Pre-trained Transformer) are trained on vast amounts of text and image data, allowing them to understand context, style, and structure. When given a prompt, they can generate remarkably coherent and creative outputs, from writing essays and code to creating stunning digital art and composing music. This page itself was designed with the assistance of a generative AI, showcasing its ability to rapidly prototype and develop modern, functional web designs.</p>
+        </div>
+
+        <!-- About Me Section -->
+        <div class="about-me">
+            <h2>About Me</h2>
+            <p>I am a dedicated Computer Science student at Texas A&M University with a minor in Statistics, expecting to graduate in December 2026. With a strong GPA of 3.89, I have a solid foundation in core concepts like Data Structures, Algorithms, and Software Engineering. I am proficient in multiple programming languages including C++, Java, and Python, and have hands-on experience in iOS app development and web technologies like HTML and React. My professional experience includes a software and processing technician internship where I developed POS software and managed databases. I am also fluent in English, Mandarin, and Cantonese, allowing me to communicate effectively in diverse environments.</p>
+        </div>
+        
+        <!-- NEW: AI Playground Section -->
+        <div class="ai-playground">
+            <h3>AI Playground</h3>
+            <p>Ask me a question about Daniel's qualifications or experience!</p>
+            <textarea id="userInput" placeholder="e.g., 'What are your technical skills?'"></textarea>
+            <button id="generateBtn">Generate</button>
+            <div id="aiResponse">The AI is ready for your prompt.</div>
+        </div>
+
+        <!-- Prompt Box -->
+        <div class="prompt-box">
+            <h3>Final Prompt Used:</h3>
+            <p class="prompt-text">"Generate an additional webpage for AI-generated content. Keep the theme and design similar to the other webpages linked. Add additional features that showcase the power of AI, thank you"</p>
+        </div>
+    </div>
+    
+    <script>
+      // Get references to the HTML elements
+      const generateBtn = document.getElementById('generateBtn');
+      const userInput = document.getElementById('userInput');
+      const aiResponse = document.getElementById('aiResponse');
+
+      // Add a click event listener to the button
+      generateBtn.addEventListener('click', () => {
+        // Get the user's input and convert it to lower case for easier matching
+        const input = userInput.value.toLowerCase();
+        
+        // Show a "typing" indicator
+        aiResponse.innerHTML = 'Generating response... <span class="typing-indicator"></span>';
+
+        // Set a delay to simulate the AI thinking
+        setTimeout(() => {
+          let response = "";
+
+          // Check for keywords in the user's input
+          if (input.includes('skill') || input.includes('technical') || input.includes('proficient') || input.includes('programming')) {
+            response = "Daniel has a strong set of technical skills including C++, Java, Python, Swift, iOS App Development, HTML, SQL, and React. He also has experience with GIT for version control.";
+          } else if (input.includes('experience') || input.includes('work') || input.includes('internship')) {
+            response = "Daniel's professional experience includes an internship as a Software and Processing Technician at Global Merchant Processing Inc., where he developed Point-of-Sale software and managed databases. He also has management experience from the service industry.";
+          } else if (input.includes('project') || input.includes('portfolio')) {
+            response = "He has worked on several interesting projects, including a Seam Carving program for intelligent image resizing, a full-stack Food Truck POS Control Panel, and he has experience teaching coding basics to kids at the Katy Junior Coding Camp.";
+          } else if (input.includes('education') || input.includes('school') || input.includes('university') || input.includes('gpa')) {
+            response = "Daniel is a Computer Science major with a minor in Statistics at Texas A&M University, graduating in December 2026. He maintains a strong GPA of 3.89.";
+          } else if (input.includes('about you') || input.includes('who are you') || input.includes('hello')) {
+            response = "I am a simple AI designed to answer questions about Daniel Wu's resume. I can tell you about his skills, experience, projects, and education. Try asking me about one of those topics!";
+          } else {
+            response = "That's an interesting question! My knowledge is currently focused on Daniel's skills, experience, and projects. Please try asking about one of those topics to learn more about him.";
+          }
+
+          // Display the selected response
+          aiResponse.textContent = response;
+        }, 1500); // 1.5 second delay
+      });
+    </script>
+  </body>
 </html>
+
