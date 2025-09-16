@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Caveat:wght@700&display=swap');
 
 /* --- General & Body Styles --- */
-body.index-page {
+body {
   font-family: 'Poppins', sans-serif;
   margin: 0;
   padding: 0;
@@ -10,9 +10,10 @@ body.index-page {
   overflow-x: hidden; /* Prevents horizontal scrolling */
 }
 
-.index-page .top-section, 
-.index-page .middle-section, 
-.index-page .bottom-section {
+/* --- Section Styling --- */
+.top-section, 
+.middle-section, 
+.bottom-section {
   padding: 20px 5%; /* Use percentage for responsive padding */
   max-width: 1100px;
   margin: 0 auto; /* Center the content */
@@ -28,7 +29,7 @@ body.index-page {
   padding-bottom: 30px;
 }
 
-.top-section img {
+.top-section img.pfp {
   width: 70px;
   height: 70px;
   border-radius: 50%; /* Makes the image circular */
@@ -36,7 +37,7 @@ body.index-page {
   transition: transform 0.3s ease;
 }
 
-.top-section img:hover {
+.top-section img.pfp:hover {
   transform: scale(1.1); /* Slight zoom on hover */
 }
 
@@ -87,7 +88,6 @@ body.index-page {
   border-bottom: 30px solid #E53E3E;
   box-shadow: 0 10px 25px rgba(0,0,0,0.1);
   text-align: center;
-  /*text size*/
   font-size: 50px;
 }
 
@@ -175,18 +175,13 @@ body.index-page {
 
 /* --- PORTFOLIO.HTML STYLES --- */
 
-/*nav*/
 .portfolio-page .top-section {
     justify-content: center;
     font-family: 'Poppins', sans-serif;
     font-weight: 600;   
 }
-.portfolio-page .top-section img {
+.portfolio-page .top-section .pfp {
     display: none;
-}
-
-body.portfolio-page {
-  font-family: 'Poppins', sans-serif;
 }
 
 .project-display-container {
@@ -205,7 +200,7 @@ body.portfolio-page {
 }
 
 .project-content.active {
-    display: block; /* Show only the active project */
+    display: block; 
 }
 
 .project-details {
@@ -245,7 +240,7 @@ body.portfolio-page {
     margin-right: 5px;
     font-weight: 600;
     position: relative;
-    bottom: -1px; /* Sits on top of the folder body border */
+    bottom: -1px; 
     transition: all 0.3s ease;
     font-family: 'Poppins', sans-serif;
 }
@@ -264,12 +259,6 @@ body.portfolio-page {
     box-shadow: 0 10px 25px rgba(0,0,0,0.05);
 }
 
-/* Fade in animation for project switching */
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
 @keyframes bounce {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-20px); }
@@ -283,17 +272,14 @@ body.portfolio-page {
     font-weight: 600;
 }
 
-.qualifications-page .top-section img {
+.qualifications-page .top-section .pfp {
     display: none;
 }
 
-body.qualifications-page {
-  font-family: 'Poppins', sans-serif;
-}
-
 .main-content {
-    max-width: 900px;
+    max-width: 1100px; /* Wider for 3 columns */
     margin: 40px auto;
+    padding: 0 20px;
 }
 
 .qualifications-page h1 {
@@ -302,11 +288,13 @@ body.qualifications-page {
     border-bottom: 3px solid #E53E3E;
     padding-bottom: 15px;
     margin-bottom: 40px;
+    text-align: center;
 }
 
 .skills-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    /* UPDATED for 3 columns on larger screens */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 30px;
 }
 
@@ -343,22 +331,15 @@ body.qualifications-page {
 
 /* --- SERVICE.HTML STYLES --- */
 
-
 .service-page .top-section {
     justify-content: center;
     font-family: 'Poppins', sans-serif;
     font-weight: 600;
 }
 
-
-.service-page .top-section img {
+.service-page .top-section .pfp {
     display: none;
 }
-
-body.service-page {
-  font-family: 'Poppins', sans-serif;
-}
-
 
 .service-page .main-content {
     max-width: 900px;
@@ -395,7 +376,6 @@ body.service-page {
     box-shadow: 0 20px 30px rgba(0,0,0,0.1);
 }
 
-
 .service-card:nth-child(even) {
     flex-direction: row-reverse;
 }
@@ -404,7 +384,7 @@ body.service-page {
     width: 200px;
     height: 200px;
     border-radius: 8px;
-    object-fit: cover; /* Prevents image stretching */
+    object-fit: cover;
 }
 
 .service-details {

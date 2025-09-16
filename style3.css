@@ -281,11 +281,74 @@ body.style2 {
 ==============================================
 --- */
 
+/* Main layout for the portfolio content */
+.portfolio-page.style2 .content-scroll {
+    display: flex;
+    gap: 30px;
+}
+
+/* NEW: Vertical Tab Container */
+.portfolio-page.style2 .folder-container {
+    display: flex;
+    flex-direction: column;
+    width: 200px; /* Width of the tab column */
+}
+
+.portfolio-page.style2 .folder-tabs {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* NEW: "Wax Seal" Tab Buttons */
+.portfolio-page.style2 .folder-tab {
+    font-size: 0; /* Hide original text */
+    border: none;
+    background: none;
+    padding: 0;
+    cursor: pointer;
+    position: relative;
+    height: 60px;
+}
+
+.portfolio-page.style2 .folder-tab::before {
+    content: ''; /* Will be replaced by specific content below */
+    font-family: var(--font-heading);
+    font-size: 1.3rem;
+    color: var(--parchment-bg);
+    background-color: var(--red-banner);
+    padding: 15px 20px;
+    display: block;
+    border-radius: 50% 0 0 50%;
+    border: 2px solid var(--dark-wood);
+    transition: all 0.3s ease;
+    text-shadow: 1px 1px 1px #000;
+}
+
+/* NEW: CSS-only text replacement */
+.portfolio-page.style2 .folder-tab[data-project="project-1"]::before { content: 'Quest I'; }
+.portfolio-page.style2 .folder-tab[data-project="project-2"]::before { content: 'Quest II'; }
+.portfolio-page.style2 .folder-tab[data-project="project-3"]::before { content: 'Quest III'; }
+
+
+.portfolio-page.style2 .folder-tab.active-tab::before {
+    background-color: var(--gold-accent);
+    color: var(--dark-wood);
+    text-shadow: none;
+    transform: translateX(10px);
+}
+
+.portfolio-page.style2 .folder-body {
+   display: none; /* The small text box is not needed for this layout */
+}
+
+
+/* Quest Details Display */
 .portfolio-page.style2 .project-display-container {
-    background: rgba(0,0,0,0.05); /* Slightly darken the parchment */
+    flex: 1; /* Takes up the remaining space */
+    background: rgba(0,0,0,0.05);
     border: 1px solid var(--border-dark);
     padding: 2vw;
-    margin-bottom: 2vw;
     box-shadow: inset 0 0 15px rgba(0,0,0,0.4);
 }
 
@@ -316,48 +379,6 @@ body.style2 {
     line-height: 1.7;
 }
 
-.portfolio-page.style2 .folder-tabs {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-}
-
-.portfolio-page.style2 .folder-tab {
-    font-family: var(--font-heading);
-    font-size: 1.2rem;
-    color: var(--text-dark);
-    background-color: #c5bba3; /* Worn leather */
-    border: 2px solid #2a2017;
-    padding: 10px 20px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 3px 5px rgba(0,0,0,0.3);
-}
-
-.portfolio-page.style2 .folder-tab:hover {
-    background-color: #d1c6b1;
-    color: var(--red-banner);
-}
-
-.portfolio-page.style2 .folder-tab.active-tab {
-    background-color: var(--parchment-bg);
-    color: var(--red-banner);
-    transform: translateY(-3px);
-    box-shadow: 0 5px 10px rgba(0,0,0,0.4);
-    border-bottom: 2px solid var(--parchment-bg); /* Blend with folder body */
-}
-
-.portfolio-page.style2 .folder-body {
-    background-color: rgba(0,0,0,0.05);
-    border: 1px solid var(--border-dark);
-    padding: 20px;
-    margin-top: -2px; /* Connect to tabs */
-    min-height: 50px;
-    text-align: center;
-    font-style: italic;
-    box-shadow: inset 0 0 10px rgba(0,0,0,0.3);
-}
-
 /* JS-driven visibility */
 .portfolio-page.style2 .project-content {
     display: none;
@@ -367,3 +388,54 @@ body.style2 {
     display: block;
 }
 
+/* ---
+==============================================
+3. QUALIFICATIONS.HTML -> SKILL TREE
+==============================================
+--- */
+
+.qualifications-page.style2 .main-content h1 {
+    font-family: var(--font-heading);
+    color: var(--red-banner);
+    text-align: center;
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    border-bottom: 2px solid var(--border-dark);
+    padding-bottom: 15px;
+    margin-bottom: 40px;
+}
+
+.qualifications-page.style2 .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.qualifications-page.style2 .skill-card {
+    background-color: rgba(0,0,0,0.05);
+    border: 1px solid var(--border-dark);
+    padding: 25px;
+    text-align: center;
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.3);
+    transition: all 0.3s ease;
+}
+
+.qualifications-page.style2 .skill-card:hover {
+    background-color: rgba(0,0,0,0.1);
+    border-color: var(--gold-accent);
+}
+
+.qualifications-page.style2 .skill-card img {
+    display: none; /* Hide corporate logos for this theme */
+}
+
+.qualifications-page.style2 .skill-card h3 {
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    color: var(--text-dark);
+    margin: 0 0 15px 0;
+}
+
+.qualifications-page.style2 .skill-card p {
+    font-size: 1rem;
+    line-height: 1.6;
+}

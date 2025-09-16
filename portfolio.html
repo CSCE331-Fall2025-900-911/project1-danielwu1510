@@ -1,10 +1,12 @@
 <html>
   <head>
     <title>Technical Portfolio</title>
+    <!-- Link to the correct medieval theme stylesheet -->
     <link rel="stylesheet" href="style3.css">
   </head>
-  <body class="portfolio-page">
-    <!-- Navigation-->
+  <!-- ADDED .style2 CLASS TO ACTIVATE THE THEME -->
+  <body class="portfolio-page style2">
+    
     <div class="top-section">
       <nav>
           <a href = "index.html">Home</a>
@@ -15,46 +17,53 @@
       </nav>
     </div>
 
-    <!-- Main Project Display Area -->
-    <div class="project-display-container">
-        <!-- Project 1 -->
-        <div id="project-1" class="project-content active">
-            <h2>Seam Carving Coding Project</h2>
-            <div class="project-details">
-                <img src="https://www.breathingcolor.com/cdn/shop/articles/the-neglected-art-of-cropping-994454_1024x1024.jpg?v=1702700444" alt="Seam Carving Example">
-                <p>Designed and coded a program that calculated for the importance of different pixels in an image and cropped/resized the image by prioritizing the important sections of said image. This project demonstrates a deep understanding of algorithms and image manipulation techniques.</p>
-            </div>
-        </div>
+    <!-- ADDED WRAPPERS FOR THEMED BORDER AND SCROLL -->
+    <div class="main-body-content">
+        <div class="content-scroll">
 
-        <!-- Project 2 -->
-        <div id="project-2" class="project-content">
-            <h2>Food Panel POS System</h2>
-             <div class="project-details">
-                <img src="https://www.tsiservice.com/wp-content/uploads/2022/05/TSI-POS-Systems-header-1000x500.jpeg" alt="Food Panel POS">
-                <p>Developed a Point-of-Sale (POS) system for restaurant operations, enabling efficient menu management and customer order tracking. Built with Python and SQL, the project emphasizes database design, data handling, and backend logic. This project showcases my ability to create real-world, scalable applications.</p>
-            </div>
-        </div>
+            <!-- Main Project Display Area -->
+            <div class="project-display-container">
+                <!-- Project 1 -->
+                <div id="project-1" class="project-content active">
+                    <h2>Seam Carving Coding Project</h2>
+                    <div class="project-details">
+                        <img src="https://www.breathingcolor.com/cdn/shop/articles/the-neglected-art-of-cropping-994454_1024x1024.jpg?v=1702700444" alt="Seam Carving Example">
+                        <p>Designed and coded a program that calculated for the importance of different pixels in an image and cropped/resized the image by prioritizing the important sections of said image. This project demonstrates a deep understanding of algorithms and image manipulation techniques.</p>
+                    </div>
+                </div>
 
-        <!-- Project 3 -->
-        <div id="project-3" class="project-content">
-            <h2>Account Manager using Binary Trees</h2>
-             <div class="project-details">
-                <img src="https://cdn.prod.website-files.com/6308b9e1771b56be92fe7491/6363d16a6a95a118db9427f2_tree-graphs-preview.jpg" alt="Data Structures">
-                <p>Built a C++ program that manages user accounts using a self-balancing binary tree structure. 
+                <!-- Project 2 -->
+                <div id="project-2" class="project-content">
+                    <h2>Food Panel POS System</h2>
+                     <div class="project-details">
+                        <img src="https://www.tsiservice.com/wp-content/uploads/2022/05/TSI-POS-Systems-header-1000x500.jpeg" alt="Food Panel POS">
+                        <p>Developed a Point-of-Sale (POS) system for restaurant operations, enabling efficient menu management and customer order tracking. Built with Python and SQL, the project emphasizes database design, data handling, and backend logic. This project showcases my ability to create real-world, scalable applications.</p>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div id="project-3" class="project-content">
+                    <h2>Account Manager using Binary Trees</h2>
+                     <div class="project-details">
+                        <img src="https://cdn.prod.website-files.com/6308b9e1771b56be92fe7491/6363d16a6a95a118db9427f2_tree-graphs-preview.jpg" alt="Data Structures">
+                        <p>Built a C++ program that manages user accounts using a self-balancing binary tree structure. 
         The system supports account insertion, retrieval, and removal while maintaining efficiency through size tracking, vacancy handling, and rebalancing algorithms. This project strengthened my understanding of data structures, memory management, and algorithmic problem-solving in a real-world account management context.</p>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
 
-    <!-- Interactive Folder Section -->
-    <div class="folder-container">
-        <div class="folder-tabs">
-            <button class="folder-tab active-tab" data-project="project-1">Project 1</button>
-            <button class="folder-tab" data-project="project-2">Project 2</button>
-            <button class="folder-tab" data-project="project-3">Project 3</button>
-        </div>
-        <div class="folder-body">
-            <p>Select a project tab to view details.</p>
+            <!-- Interactive Folder Section -->
+            <div class="folder-container">
+                <div class="folder-tabs">
+                    <button class="folder-tab active-tab" data-project="project-1">Project 1</button>
+                    <button class="folder-tab" data-project="project-2">Project 2</button>
+                    <button class="folder-tab" data-project="project-3">Project 3</button>
+                </div>
+                <div class="folder-body">
+                    <p>Select a project tab to view details.</p>
+                </div>
+            </div>
+
         </div>
     </div>
 
@@ -79,3 +88,4 @@
     </script>
   </body>
 </html>
+
