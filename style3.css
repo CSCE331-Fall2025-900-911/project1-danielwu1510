@@ -20,7 +20,7 @@ STYLE 2: MEDIEVAL FANTASY UI (REWORKED)
 }
 
 /* --- General & Body Styles --- */
-body.style2 {
+body {
     font-family: var(--font-body);
     margin: 0;
     padding: 0;
@@ -390,52 +390,206 @@ body.style2 {
 
 /* ---
 ==============================================
-3. QUALIFICATIONS.HTML -> SKILL TREE
+3. QUALIFICATIONS.HTML -> GAME ACHIEVEMENTS (Timeline)
 ==============================================
 --- */
 
+/* Hide original H1 and prepare for pseudo-element title */
 .qualifications-page.style2 .main-content h1 {
+    font-size: 0;
+    border-bottom: none;
+    margin-bottom: 100px; /* Space for title and timeline */
+    position: relative;
+}
+
+/* Create new title with pseudo-element */
+.qualifications-page.style2 .main-content h1::before {
+    content: 'Game Achievements';
     font-family: var(--font-heading);
     color: var(--red-banner);
     text-align: center;
     font-size: clamp(2.5rem, 5vw, 3.5rem);
     border-bottom: 2px solid var(--border-dark);
     padding-bottom: 15px;
-    margin-bottom: 40px;
+    display: block;
 }
 
+/* The main container for the timeline */
 .qualifications-page.style2 .skills-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
+    display: flex; /* Use flexbox for horizontal layout */
+    justify-content: space-around; /* Distribute items along the line */
+    align-items: center; /* Vertically align items to the center line */
+    position: relative;
+    padding: 50px 0; /* Add padding to prevent cards from being cut off */
 }
 
+/* The central horizontal line of the timeline */
+.qualifications-page.style2 .skills-grid::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background-color: var(--dark-wood);
+    transform: translateY(-50%);
+    z-index: 1;
+}
+
+/* Styling for each achievement/skill card */
 .qualifications-page.style2 .skill-card {
-    background-color: rgba(0,0,0,0.05);
-    border: 1px solid var(--border-dark);
-    padding: 25px;
+    background-color: rgba(245, 238, 218, 0.9);
+    border: 2px solid var(--dark-wood);
+    padding: 15px; /* Reduced padding */
+    width: 14%; /* Reduced width to fit more cards */
     text-align: center;
-    box-shadow: inset 0 0 10px rgba(0,0,0,0.3);
+    box-shadow: 0 5px 10px rgba(0,0,0,0.3);
     transition: all 0.3s ease;
+    position: relative; /* For positioning the arrow */
+    z-index: 2;
 }
 
+/* The arrow pointing from the card to the timeline */
+.qualifications-page.style2 .skill-card::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Position cards ABOVE the timeline */
+.qualifications-page.style2 .skill-card:nth-child(odd) {
+    transform: translateY(calc(-50% - 15px)); /* Corrected calculation */
+}
+
+.qualifications-page.style2 .skill-card:nth-child(odd):hover {
+    transform: translateY(calc(-50% - 15px)) scale(1.05);
+}
+
+/* Arrow for top cards (points down) */
+.qualifications-page.style2 .skill-card:nth-child(odd)::after {
+    top: 100%;
+    border-width: 15px 15px 0 15px;
+    border-color: var(--dark-wood) transparent transparent transparent;
+}
+
+/* Position cards BELOW the timeline */
+.qualifications-page.style2 .skill-card:nth-child(even) {
+    transform: translateY(calc(50% + 15px)); /* Pushes card down, aligning arrow tip */
+}
+
+.qualifications-page.style2 .skill-card:nth-child(even):hover {
+    transform: translateY(calc(50% + 15px)) scale(1.05);
+}
+
+/* Arrow for bottom cards (points up) */
+.qualifications-page.style2 .skill-card:nth-child(even)::after {
+    bottom: 100%;
+    border-width: 0 15px 15px 15px;
+    border-color: transparent transparent var(--dark-wood) transparent;
+}
+
+/* Generic hover state - NO TRANSFORM HERE to avoid overriding position */
 .qualifications-page.style2 .skill-card:hover {
-    background-color: rgba(0,0,0,0.1);
     border-color: var(--gold-accent);
 }
 
 .qualifications-page.style2 .skill-card img {
-    display: none; /* Hide corporate logos for this theme */
+    display: none;
 }
 
+/* Reduced font sizes to fit smaller cards */
 .qualifications-page.style2 .skill-card h3 {
+    font-family: var(--font-heading);
+    font-size: 1.2rem; /* Reduced font size */
+    color: var(--text-dark);
+    margin: 0 0 10px 0;
+}
+
+.qualifications-page.style2 .skill-card p {
+    font-size: 0.8rem; /* Reduced font size */
+    line-height: 1.4; /* Adjusted line height */
+}
+
+/* ---
+==============================================
+4. SERVICE.HTML -> CHIVALROUS ACTS
+==============================================
+--- */
+
+/* Hide original H1 and prepare for pseudo-element title */
+.service-page.style2 .main-content h1 {
+    font-size: 0; /* Hides the original text */
+    border-bottom: none;
+    padding-bottom: 0;
+    position: relative; /* Context for the pseudo-element */
+    margin-bottom: 40px;
+}
+
+/* Create new title with pseudo-element */
+.service-page.style2 .main-content h1::before {
+    content: 'Chivalrous Acts';
+    font-size: clamp(2.5rem, 5vw, 3.5rem); /* Restores the font size */
+    font-family: var(--font-heading);
+    color: var(--red-banner);
+    text-align: center;
+    border-bottom: 2px solid var(--border-dark);
+    padding-bottom: 15px;
+    display: block;
+}
+
+.service-page.style2 .service-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.service-page.style2 .service-card {
+    display: flex;
+    gap: 30px;
+    background: rgba(245, 238, 218, 0.7);
+    border-top: 2px solid var(--border-dark);
+    border-bottom: 2px solid var(--border-dark);
+    padding: 30px 20px;
+    align-items: center;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.service-page.style2 .service-card:hover {
+    background-color: rgba(0,0,0,0.1);
+    border-color: var(--gold-accent);
+}
+
+.service-page.style2 .service-card img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 50%; /* Circular 'seal' */
+    border: 5px solid var(--dark-wood);
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    padding: 5px;
+    background-color: var(--parchment-bg);
+}
+
+.service-page.style2 .service-details {
+    flex: 1;
+}
+
+.service-page.style2 .service-details h3 {
     font-family: var(--font-heading);
     font-size: 1.8rem;
     color: var(--text-dark);
     margin: 0 0 15px 0;
 }
 
-.qualifications-page.style2 .skill-card p {
+.service-page.style2 .service-details p {
     font-size: 1rem;
-    line-height: 1.6;
+    line-height: 1.7;
+    margin: 0;
 }
+
+
