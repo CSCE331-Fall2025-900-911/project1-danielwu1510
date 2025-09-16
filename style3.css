@@ -1,0 +1,369 @@
+/* ---
+==============================================
+STYLE 2: MEDIEVAL FANTASY UI (REWORKED)
+==============================================
+--- */
+
+/* --- Google Font Imports: Fantasy Theme --- */
+@import url('https://fonts.googleapis.com/css2?family=MedievalSharp&family=Lora:wght@400;600&display=swap');
+
+/* --- Root Variables for Medieval UI Theme --- */
+:root {
+    --parchment-bg: #f5eeda;
+    --dark-wood: #3a2d21;
+    --gold-accent: #b8860b;
+    --red-banner: #800000;
+    --text-dark: #2c251e;
+    --border-dark: rgba(44, 37, 30, 0.4);
+    --font-heading: 'MedievalSharp', cursive;
+    --font-body: 'Lora', serif;
+}
+
+/* --- General & Body Styles --- */
+body.style2 {
+    font-family: var(--font-body);
+    margin: 0;
+    padding: 0;
+    background-color: #eaddc7; /* Slightly darker, solid parchment background */
+    color: var(--text-dark);
+    overflow-x: hidden;
+}
+
+/* --- Universal Top Section (Header) Styling --- */
+.top-section {
+    display: flex;
+    justify-content: center; 
+    align-items: flex-end; /* Align tabs to the bottom */
+    min-height: 175px;
+    padding: 20px 5% 0; /* Remove bottom padding */
+    background-image: url('https://as1.ftcdn.net/jpg/04/19/23/84/1000_F_419238409_aZbLfQy3RfO96LWUexV3gS0ueG4MAMga.jpg');
+    background-size: cover;
+    background-position: center 70%;
+    border-bottom: 10px solid var(--dark-wood);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+    position: relative;
+    z-index: 10;
+}
+.top-section .pfp {
+    display: none;
+}
+
+/* Corrected Physical Navigation Tabs */
+.top-section nav a {
+  text-decoration: none;
+  color: var(--parchment-bg); /* Light text for dark background */
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  margin: 0 10px;
+  padding: 15px 25px;
+  background-color: var(--dark-wood); /* Dark wood to match the border */
+  border: 2px solid #2a2017;
+  border-bottom: none;
+  border-radius: 10px 10px 0 0;
+  transition: all 0.3s ease;
+}
+
+.top-section nav a:hover {
+    background-color: var(--parchment-bg);
+    color: var(--red-banner);
+}
+
+/* Style for the active tab */
+.index-page.style2 .top-section nav a[href="index.html"] {
+    background-color: var(--parchment-bg);
+    color: var(--red-banner);
+    margin-bottom: -2px; /* Pulls the main content border up to connect seamlessly */
+    padding-bottom: 17px; /* Add back the 2px to maintain visual height */
+}
+
+
+/* --- MAIN CONTENT FRAME (SEAMLESS BORDER) --- */
+.main-body-content {
+    max-width: 1400px;
+    margin: 0 auto; /* Removed top margin to connect with header */
+    background-image: url('style2 background.png'), url('https://img.pikbest.com/wp/202344/parchment-paper-vintage-an-aged-texture-with-blank-space-for-adding-light-elements_9924083.jpg!bw700');
+    background-size: 100% 100%, cover;
+    background-position: center, center;
+    background-repeat: no-repeat, no-repeat;
+    padding: 6%; 
+    box-sizing: border-box;
+    box-shadow: 0 0 0 5px var(--dark-wood);
+    position: relative;
+}
+
+/* NEW: Character Portrait using a pseudo-element */
+.main-body-content::before {
+    content: '';
+    position: absolute;
+    top: 6%;
+    left: 6%;
+    width: 200px;
+    height: 200px;
+    background-image: url('https://img.freepik.com/premium-vector/vector-black-white-image-medieval-knight-armor_983400-1778.jpg?semt=ais_incoming&w=740&q=80');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-color: var(--parchment-bg);
+    border: 5px solid var(--dark-wood);
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.5);
+    border-radius: 50%; /* Optional: makes it circular */
+    z-index: 2;
+}
+
+.main-body-content::after {
+    content: '';
+    position: absolute;
+    top: 185px; /* 200px image + 15px gap */
+    left: 6.5%;
+    width: 500px;
+    height: 200px;
+    background-image: url('style2 banner.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    z-index : 3;
+}
+
+/* Add left margin to content to avoid overlap with portrait */
+.main-body-content > * {
+    margin-left: 220px; /* 200px width + 20px spacing */
+}
+
+/* --- Name / Title Section --- */
+.middle-section {
+    text-align: center;
+    padding-bottom: 2vw;
+    margin-bottom: 2vw;
+    border-bottom: 2px solid var(--border-dark);
+}
+
+.middle-section h1.name {
+    font-family: var(--font-heading);
+    font-size: clamp(3rem, 5vw, 1rem);
+    font-weight: 500;
+    color: var(--text-dark);
+    margin: 0;
+    text-align: center;
+    display: inline-block;
+    padding: 0.5em 1.5em;
+    border: 5px double var(--gold-accent);
+    border-radius: 15px;
+    background: linear-gradient(135deg, #f5eeda 90%, #b8860b22 100%);
+    box-shadow: 0 0 16px 2px #b8860b55, 0 2px 0 0 var(--dark-wood);
+    letter-spacing: 0.1em;
+    position: relative;
+}
+
+.middle-section h2 {
+    display: none;
+}
+
+/* --- Bottom Section (Character Sheet) --- */
+.bottom-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2vw;
+    align-items: start;
+    position: relative; /* NEW: Positioning context for the divider */
+}
+
+/* NEW: Reliable Vertical Divider */
+.bottom-section::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 100%;
+    background-color: var(--border-dark);
+}
+
+.panel {
+    background-color: rgba(245, 238, 218, 0.6); 
+    border: 1px solid var(--border-dark);
+    padding: 1.5vw;
+}
+
+
+/* REDESIGNED PANEL TITLE */
+.panel-title {
+    font-family: var(--font-heading);
+    color: var(--red-banner);
+    font-size: clamp(1.5rem, 3vw, 2.2rem);
+    text-align: center;
+    margin: 0 0 20px 0;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--border-dark);
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.2);
+}
+
+/* Panel content styling */
+.functions {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: flex-start; /* Align buttons to the left */
+}
+
+
+/* REDESIGNED WEAPONS BUTTONS */
+.functions button {
+    display: inline-block; /* Allow button to shrink */
+    width: auto; /* REMOVED width: 100% */
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: clamp(1rem, 1.5vw, 1.2rem);
+    color: var(--parchment-bg);
+    background-image: url('https://www.transparenttextures.com/patterns/wood-pattern.png'), linear-gradient(145deg, #4a3c31, #3a2d21);
+    border: 2px solid #2a2017;
+    padding: 15px 25px; /* Added more horizontal padding */
+    margin-bottom: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: inset 0 0 5px rgba(0,0,0,0.5), 0 4px 6px rgba(0,0,0,0.3);
+    text-shadow: 1px 1px 2px #000;
+}
+
+.functions button:hover {
+    color: var(--dark-wood);
+    background-image: url('https://www.transparenttextures.com/patterns/wood-pattern.png'), linear-gradient(145deg, #d4b377, var(--gold-accent));
+    text-shadow: none;
+    box-shadow: inset 0 0 5px rgba(0,0,0,0.2), 0 6px 10px rgba(0,0,0,0.3), 0 0 15px var(--gold-accent);
+    transform: translateY(-2px);
+}
+
+/* UPDATED: 2x2 grid for social media */
+.social-media {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    gap: 15px;
+    justify-content: center; /* Center the grid in the panel */
+}
+
+
+/* REDESIGNED ALLIANCES LIST */
+.social-media button {
+    display: inline-flex; /* Allow button to shrink */
+    align-items: center;
+    gap: 15px;
+    background: linear-gradient(to right, #4a3c31, #3a2d21);
+    border: 2px solid #2a2017;
+    width: auto; /* REMOVED width: auto */
+    padding: 10px 15px; /* Adjusted padding */
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+    border-radius: 5px;
+}
+
+.social-media button:hover {
+    box-shadow: 0 6px 10px rgba(0,0,0,0.3), 0 0 15px var(--gold-accent);
+    transform: translateY(-2px);
+}
+
+.social-media img {
+    width: 35px;
+    height: 35px;
+    padding: 5px;
+    background-color: #2c251e;
+    border-radius: 50%;
+    filter: grayscale(1) brightness(1.5) contrast(1.2);
+    transition: all 0.3s ease;
+}
+
+.social-media button:hover img {
+    filter: none;
+    background-color: #fff;
+}
+
+/* ---
+==============================================
+2. PORTFOLIO.HTML -> QUEST JOURNAL
+==============================================
+--- */
+
+.portfolio-page.style2 .project-display-container {
+    background: rgba(0,0,0,0.05); /* Slightly darken the parchment */
+    border: 1px solid var(--border-dark);
+    padding: 2vw;
+    margin-bottom: 2vw;
+    box-shadow: inset 0 0 15px rgba(0,0,0,0.4);
+}
+
+.portfolio-page.style2 .project-display-container h2 {
+    font-family: var(--font-heading);
+    color: var(--red-banner);
+    text-align: center;
+    font-size: clamp(2rem, 4vw, 3rem);
+    margin: 0 0 20px 0;
+    padding-bottom: 15px;
+    border-bottom: 2px solid var(--border-dark);
+}
+
+.portfolio-page.style2 .project-details {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.portfolio-page.style2 .project-details img {
+    max-width: 40%;
+    border: 8px solid var(--dark-wood);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+}
+
+.portfolio-page.style2 .project-details p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+}
+
+.portfolio-page.style2 .folder-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.portfolio-page.style2 .folder-tab {
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    color: var(--text-dark);
+    background-color: #c5bba3; /* Worn leather */
+    border: 2px solid #2a2017;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 3px 5px rgba(0,0,0,0.3);
+}
+
+.portfolio-page.style2 .folder-tab:hover {
+    background-color: #d1c6b1;
+    color: var(--red-banner);
+}
+
+.portfolio-page.style2 .folder-tab.active-tab {
+    background-color: var(--parchment-bg);
+    color: var(--red-banner);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 10px rgba(0,0,0,0.4);
+    border-bottom: 2px solid var(--parchment-bg); /* Blend with folder body */
+}
+
+.portfolio-page.style2 .folder-body {
+    background-color: rgba(0,0,0,0.05);
+    border: 1px solid var(--border-dark);
+    padding: 20px;
+    margin-top: -2px; /* Connect to tabs */
+    min-height: 50px;
+    text-align: center;
+    font-style: italic;
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.3);
+}
+
+/* JS-driven visibility */
+.portfolio-page.style2 .project-content {
+    display: none;
+}
+
+.portfolio-page.style2 .project-content.active {
+    display: block;
+}
+
