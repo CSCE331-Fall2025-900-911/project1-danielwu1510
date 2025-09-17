@@ -1,36 +1,75 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Find the button and the stylesheet link element in the HTML.
+    // --- Style Toggler ---
     const styleToggleBtn = document.getElementById('style-toggle-btn');
     const stylesheet = document.getElementById('stylesheet');
+    const body = document.body;
 
-    // This function updates the stylesheet link and saves the choice.
     const setStyleSheet = (styleName) => {
-        stylesheet.setAttribute('href', styleName);
-        localStorage.setItem('selectedStyle', styleName);
+        if (stylesheet) {
+            stylesheet.setAttribute('href', styleName);
+            localStorage.setItem('selectedStyle', styleName);
+        }
     };
 
-    // When the page loads, check if a style was previously saved.
     const savedStyle = localStorage.getItem('selectedStyle');
-    if (savedStyle) {
-        // If a style is saved, apply it.
+    if (savedStyle && stylesheet) {
         stylesheet.setAttribute('href', savedStyle);
-    } else {
-        // Otherwise, default to the modern style (style1.css).
+    } else if (stylesheet) {
         stylesheet.setAttribute('href', 'style1.css');
     }
 
-    // Add a click listener to the button.
-    if(styleToggleBtn) {
+    if(styleToggleBtn && stylesheet) {
         styleToggleBtn.addEventListener('click', () => {
-            // Check which stylesheet is currently active.
-            const currentStyle = stylesheet.getAttribute('href');
-            
-            // Swap to the other stylesheet.
-            if (currentStyle === 'style1.css') {
-                setStyleSheet('style3.css');
-            } else {
-                setStyleSheet('style1.css');
-            }
+            body.classList.add('fade-out');
+            setTimeout(() => {
+                const currentStyle = stylesheet.getAttribute('href');
+                if (currentStyle === 'style1.css') {
+                    setStyleSheet('style3.css');
+                } else {
+                    setStyleSheet('style1.css');
+                }
+                body.classList.remove('fade-out');
+            }, 500);
+        });
+    }
+
+    // --- Share Button Functionality ---
+    const shareBtn = document.getElementById('share-btn');
+    if (shareBtn) {
+        shareBtn.addEventListener('click', () => {
+            // Create a temporary textarea element to hold the custom URL
+            const textArea = document.createElement('textarea');
+            textArea.value = 'https://people.tamu.edu/~danielwu1510/index.html'; // Custom link
+            document.body.appendChild(textArea);
+            textArea.select();
+            document.execCommand('copy'); // Copy the URL
+            document.body.removeChild(textArea);
+
+            // Provide user feedback
+            const originalText = shareBtn.textContent;
+            shareBtn.textContent = 'Copied!';
+            setTimeout(() => {
+                shareBtn.textContent = originalText;
+            }, 2000); // Revert text after 2 seconds
+        });
+    }
+
+    // --- Download/Export Button Functionality ---
+    const downloadBtn = document.getElementById('download-btn');
+    if (downloadBtn) {
+        downloadBtn.addEventListener('click', () => {
+            // Triggers the browser's print functionality
+            window.print();
+        });
+    }
+
+    // --- Social Media Button Functionality ---
+    const twitterBtn = document.getElementById('twitter-btn');
+    if (twitterBtn) {
+        twitterBtn.addEventListener('click', function(event) {
+            event.preventDefault(); // Prevent the link from opening
+            alert('lol I don\'t have a Twitter');
         });
     }
 });
+
