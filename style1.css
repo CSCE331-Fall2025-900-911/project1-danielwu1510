@@ -259,6 +259,26 @@ body {
     box-shadow: 0 10px 25px rgba(0,0,0,0.05);
 }
 
+.portfolio-page .github-btn {
+    display: block;
+    width: fit-content;
+    margin: 20px auto 0;
+    padding: 12px 24px;
+    background-color: #2D3748; /* Dark color to stand out */
+    color: #FFFFFF;
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 8px;
+    text-align: center;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.portfolio-page .github-btn:hover {
+    background-color: #000000;
+    transform: translateY(-3px);
+    box-shadow: 0 4px 15px rgba(45, 55, 72, 0.3);
+}
+
 @keyframes bounce {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-20px); }
@@ -329,6 +349,44 @@ body {
     margin: 0;
 }
 
+/* --- QUALIFICATIONS.HTML Resume & Interests --- */
+
+.resume-container {
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.resume-container iframe {
+  width: 100%;
+  max-width: 850px; /* Standard document width */
+  height: 1100px; /* Standard document height */
+  border: 1px solid #CBD5E0;
+  border-radius: 8px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.interests-section {
+  background: #FFFFFF;
+  border-radius: 12px;
+  padding: 30px;
+  margin-top: 40px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+}
+
+.interests-section h2 {
+  margin-top: 0;
+  font-size: 1.8rem;
+  border-bottom: 2px solid #E53E3E;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+.interests-section p {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #4A5568;
+}
+
 /* --- SERVICE.HTML STYLES --- */
 
 .service-page .top-section {
@@ -358,6 +416,12 @@ body {
     display: flex;
     flex-direction: column;
     gap: 40px;
+}
+
+.service-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
 }
 
 .service-card {
@@ -400,4 +464,44 @@ body {
     line-height: 1.7;
     color: #4A5568;
 }
+
+/* --- QUALIFICATIONS.HTML ADDITIONS --- */
+
+.resume-container {
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.resume-container iframe {
+  width: 100%;
+  max-width: 850px; /* Standard document width */
+  height: 1100px; /* Standard document height */
+  border: 1px solid #CBD5E0;
+  border-radius: 8px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.interests-section {
+  background: #FFFFFF;
+  border-radius: 12px;
+  padding: 30px;
+  margin-top: 40px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+}
+
+.interests-section h2 {
+  margin-top: 0;
+  font-size: 1.8rem;
+  border-bottom: 2px solid #E53E3E;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+.interests-section p {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #4A5568;
+}
+
+
 

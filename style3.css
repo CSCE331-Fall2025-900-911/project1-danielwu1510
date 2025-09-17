@@ -69,11 +69,14 @@ body {
 }
 
 /* Style for the active tab */
-.index-page.style2 .top-section nav a[href="index.html"] {
+.index-page.style2 .top-section nav a[href="index.html"],
+.portfolio-page.style2 .top-section nav a[href="portfolio.html"],
+.qualifications-page.style2 .top-section nav a[href="qualifications.html"],
+.service-page.style2 .top-section nav a[href="service.html"] {
     background-color: var(--parchment-bg);
     color: var(--red-banner);
-    margin-bottom: -2px; /* Pulls the main content border up to connect seamlessly */
-    padding-bottom: 17px; /* Add back the 2px to maintain visual height */
+    margin-bottom: -2px; 
+    padding-bottom: 17px; 
 }
 
 
@@ -342,6 +345,33 @@ body {
    display: none; /* The small text box is not needed for this layout */
 }
 
+/* Style for GitHub button in medieval theme */
+.portfolio-page.style2 .github-btn {
+    display: block;
+    width: auto;
+    margin: 20px auto 0;
+    padding: 15px 30px;
+    font-family: var(--font-heading);
+    font-size: 1.4rem;
+    color: var(--parchment-bg);
+    text-decoration: none;
+    text-align: center;
+    text-shadow: 1px 1px 2px #000;
+    background-image: url('https://www.transparenttextures.com/patterns/wood-pattern.png'), linear-gradient(145deg, #4a3c31, #3a2d21);
+    border: 2px solid #2a2017;
+    border-radius: 5px;
+    box-shadow: inset 0 0 5px rgba(0,0,0,0.5), 0 4px 6px rgba(0,0,0,0.3);
+    transition: all 0.3s ease;
+}
+
+.portfolio-page.style2 .github-btn:hover {
+    color: var(--dark-wood);
+    background-image: url('https://www.transparenttextures.com/patterns/wood-pattern.png'), linear-gradient(145deg, #d4b377, var(--gold-accent));
+    text-shadow: none;
+    box-shadow: inset 0 0 5px rgba(0,0,0,0.2), 0 6px 10px rgba(0,0,0,0.3), 0 0 15px var(--gold-accent);
+    transform: translateY(-2px);
+}
+
 
 /* Quest Details Display */
 .portfolio-page.style2 .project-display-container {
@@ -514,11 +544,54 @@ body {
     line-height: 1.4; /* Adjusted line height */
 }
 
+/* --- QUALIFICATIONS.HTML Resume & Interests (Style 2) --- */
+
+.qualifications-page.style2 .resume-container {
+    max-width: 850px;
+    margin: 40px auto;
+}
+
+.qualifications-page.style2 .resume-container iframe {
+  border: 8px solid var(--dark-wood);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+}
+
+.qualifications-page.style2 .interests-section {
+  background: rgba(245, 238, 218, 0.7);
+  border: 2px solid var(--border-dark);
+  color: var(--text-dark);
+  padding: 30px;
+  margin: 40px auto;
+  max-width: 1100px;
+  border-radius: 0; /* Override style1 */
+}
+
+.qualifications-page.style2 .interests-section h2 {
+  font-family: var(--font-heading);
+  color: var(--red-banner);
+  font-size: 2.2rem;
+  border-bottom: 2px solid var(--border-dark);
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+.qualifications-page.style2 .interests-section p {
+   color: var(--text-dark);
+   font-size: 1.1rem;
+   line-height: 1.8;
+}
+
 /* ---
 ==============================================
 4. SERVICE.HTML -> CHIVALROUS ACTS
 ==============================================
 --- */
+
+.service-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
 
 /* Hide original H1 and prepare for pseudo-element title */
 .service-page.style2 .main-content h1 {
@@ -591,5 +664,4 @@ body {
     line-height: 1.7;
     margin: 0;
 }
-
 
