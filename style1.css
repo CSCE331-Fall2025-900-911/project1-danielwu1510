@@ -10,7 +10,7 @@ body {
   overflow-x: hidden; /* Prevents horizontal scrolling */
 }
 
-/* --- Section Styling --- */
+
 .top-section, 
 .middle-section, 
 .bottom-section {
@@ -20,7 +20,7 @@ body {
   box-sizing: border-box;
 }
 
-/* --- Top Section (Header) --- */
+/* --- Navigation Tabs --- */
 .top-section {
   display: flex;
   justify-content: space-between;
@@ -32,13 +32,13 @@ body {
 .top-section img.pfp {
   width: 70px;
   height: 70px;
-  border-radius: 50%; /* Makes the image circular */
-  border: 3px solid #E53E3E; /* Red accent color border */
+  border-radius: 50%;
+  border: 3px solid #E53E3E;
   transition: transform 0.3s ease;
 }
 
 .top-section img.pfp:hover {
-  transform: scale(1.1); /* Slight zoom on hover */
+  transform: scale(1.1);
 }
 
 .top-section nav a {
@@ -76,7 +76,7 @@ body {
 .middle-section {
   position: relative;
   max-width: 600px;
-  aspect-ratio: 16 / 9; /* Enforces a 16:9 ratio */
+  aspect-ratio: 16 / 9;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -116,7 +116,48 @@ body {
   line-height: 1;
 }
 
-/* --- Bottom Section (Functions & Socials) --- */
+/* --- Intro Section Styling --- */
+.intro-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    max-width: 2000px;
+    margin: 0 auto 40px;
+    padding: 0 3%;
+}
+
+.tagline-section, .about-snippet {
+    flex: 1;
+    background: #FFFFFF;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+}
+
+.tagline-section {
+    border-left: 5px solid #E53E3E;
+}
+
+.about-snippet {
+    border-right: 5px solid #E53E3E;
+    text-align: right;
+}
+
+.tagline-section h3 {
+    margin: 0;
+    font-size: 1.4rem;
+    font-weight: 600;
+    line-height: 1.5;
+}
+
+.about-snippet p {
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.7;
+    color: #4A5568;
+}
+
+/* --- Functions & Socials --- */
 .bottom-section {
   display: flex;
   justify-content: space-between;
@@ -264,7 +305,7 @@ body {
     width: fit-content;
     margin: 20px auto 0;
     padding: 12px 24px;
-    background-color: #2D3748; /* Dark color to stand out */
+    background-color: #2D3748;
     color: #FFFFFF;
     text-decoration: none;
     font-weight: 600;
@@ -297,7 +338,7 @@ body {
 }
 
 .main-content {
-    max-width: 1100px; /* Wider for 3 columns */
+    max-width: 1100px;
     margin: 40px auto;
     padding: 0 20px;
 }
@@ -313,7 +354,6 @@ body {
 
 .skills-grid {
     display: grid;
-    /* UPDATED for 3 columns on larger screens */
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 30px;
 }
@@ -350,7 +390,6 @@ body {
 }
 
 /* --- QUALIFICATIONS.HTML Resume & Interests --- */
-
 .resume-container {
   margin-bottom: 40px;
   text-align: center;
@@ -358,8 +397,8 @@ body {
 
 .resume-container iframe {
   width: 100%;
-  max-width: 850px; /* Standard document width */
-  height: 1100px; /* Standard document height */
+  max-width: 850px;
+  height: 1100px;
   border: 1px solid #CBD5E0;
   border-radius: 8px;
   box-shadow: 0 10px 25px rgba(0,0,0,0.1);
@@ -465,7 +504,7 @@ body {
     color: #4A5568;
 }
 
-/* --- QUALIFICATIONS.HTML ADDITIONS --- */
+/* --- QUALIFICATIONS.HTML part 2 --- */
 
 .resume-container {
   margin-bottom: 40px;
@@ -502,6 +541,3 @@ body {
   line-height: 1.7;
   color: #4A5568;
 }
-
-
-

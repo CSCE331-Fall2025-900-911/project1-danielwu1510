@@ -1,13 +1,13 @@
 /* ---
 ==============================================
-STYLE 2: MEDIEVAL FANTASY UI (REWORKED)
+STYLE 2: MEDIEVAL FANTASY UI
 ==============================================
 --- */
 
-/* --- Google Font Imports: Fantasy Theme --- */
+
 @import url('https://fonts.googleapis.com/css2?family=MedievalSharp&family=Lora:wght@400;600&display=swap');
 
-/* --- Root Variables for Medieval UI Theme --- */
+/* --- Root Variables --- */
 :root {
     --parchment-bg: #f5eeda;
     --dark-wood: #3a2d21;
@@ -29,13 +29,13 @@ body {
     overflow-x: hidden;
 }
 
-/* --- Universal Top Section (Header) Styling --- */
+/* --- TOP SECTION & NAVIGATION TABS --- */
 .top-section {
     display: flex;
     justify-content: center; 
-    align-items: flex-end; /* Align tabs to the bottom */
+    align-items: flex-end;
     min-height: 175px;
-    padding: 20px 5% 0; /* Remove bottom padding */
+    padding: 20px 5% 0;
     background-image: url('https://as1.ftcdn.net/jpg/04/19/23/84/1000_F_419238409_aZbLfQy3RfO96LWUexV3gS0ueG4MAMga.jpg');
     background-size: cover;
     background-position: center 70%;
@@ -48,15 +48,15 @@ body {
     display: none;
 }
 
-/* Corrected Physical Navigation Tabs */
+
 .top-section nav a {
   text-decoration: none;
-  color: var(--parchment-bg); /* Light text for dark background */
+  color: var(--parchment-bg);
   font-family: var(--font-heading);
   font-size: 1.5rem;
   margin: 0 10px;
   padding: 15px 25px;
-  background-color: var(--dark-wood); /* Dark wood to match the border */
+  background-color: var(--dark-wood);
   border: 2px solid #2a2017;
   border-bottom: none;
   border-radius: 10px 10px 0 0;
@@ -68,7 +68,7 @@ body {
     color: var(--red-banner);
 }
 
-/* Style for the active tab */
+
 .index-page.style2 .top-section nav a[href="index.html"],
 .portfolio-page.style2 .top-section nav a[href="portfolio.html"],
 .qualifications-page.style2 .top-section nav a[href="qualifications.html"],
@@ -80,7 +80,7 @@ body {
 }
 
 
-/* --- MAIN CONTENT FRAME (SEAMLESS BORDER) --- */
+/* --- MAIN CONTENT FRAME  --- */
 .main-body-content {
     max-width: 1400px;
     margin: 0 auto; /* Removed top margin to connect with header */
@@ -94,7 +94,7 @@ body {
     position: relative;
 }
 
-/* NEW: Character Portrait using a pseudo-element */
+
 .main-body-content::before {
     content: '';
     position: absolute;
@@ -108,14 +108,14 @@ body {
     background-color: var(--parchment-bg);
     border: 5px solid var(--dark-wood);
     box-shadow: inset 0 0 10px rgba(0,0,0,0.5);
-    border-radius: 50%; /* Optional: makes it circular */
+    border-radius: 50%; 
     z-index: 2;
 }
 
 .main-body-content::after {
     content: '';
     position: absolute;
-    top: 185px; /* 200px image + 15px gap */
+    top: 185px;
     left: 6.5%;
     width: 500px;
     height: 200px;
@@ -125,9 +125,9 @@ body {
     z-index : 3;
 }
 
-/* Add left margin to content to avoid overlap with portrait */
+
 .main-body-content > * {
-    margin-left: 220px; /* 200px width + 20px spacing */
+    margin-left: 220px; 
 }
 
 /* --- Name / Title Section --- */
@@ -165,10 +165,10 @@ body {
     grid-template-columns: 1fr 1fr;
     gap: 2vw;
     align-items: start;
-    position: relative; /* NEW: Positioning context for the divider */
+    position: relative;
 }
 
-/* NEW: Reliable Vertical Divider */
+
 .bottom-section::after {
     content: '';
     position: absolute;
@@ -187,7 +187,6 @@ body {
 }
 
 
-/* REDESIGNED PANEL TITLE */
 .panel-title {
     font-family: var(--font-heading);
     color: var(--red-banner);
@@ -204,21 +203,21 @@ body {
     display: flex;
     flex-direction: column;
     gap: 15px;
-    align-items: flex-start; /* Align buttons to the left */
+    align-items: flex-start;
 }
 
 
-/* REDESIGNED WEAPONS BUTTONS */
+/*  WEAPONS BUTTONS */
 .functions button {
-    display: inline-block; /* Allow button to shrink */
-    width: auto; /* REMOVED width: 100% */
+    display: inline-block;
+    width: auto;
     font-family: var(--font-body);
     font-weight: 600;
     font-size: clamp(1rem, 1.5vw, 1.2rem);
     color: var(--parchment-bg);
     background-image: url('https://www.transparenttextures.com/patterns/wood-pattern.png'), linear-gradient(145deg, #4a3c31, #3a2d21);
     border: 2px solid #2a2017;
-    padding: 15px 25px; /* Added more horizontal padding */
+    padding: 15px 25px; 
     margin-bottom: 15px;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -234,7 +233,7 @@ body {
     transform: translateY(-2px);
 }
 
-/* UPDATED: 2x2 grid for social media */
+/* 2x2 grid for social media */
 .social-media {
     display: grid;
     grid-template-columns: repeat(2, auto);
@@ -243,15 +242,15 @@ body {
 }
 
 
-/* REDESIGNED ALLIANCES LIST */
+/* ALLIANCES LIST */
 .social-media button {
     display: inline-flex; /* Allow button to shrink */
     align-items: center;
     gap: 15px;
     background: linear-gradient(to right, #4a3c31, #3a2d21);
     border: 2px solid #2a2017;
-    width: auto; /* REMOVED width: auto */
-    padding: 10px 15px; /* Adjusted padding */
+    width: auto;
+    padding: 10px 15px;
     cursor: pointer;
     transition: all 0.3s ease;
     box-shadow: 0 4px 6px rgba(0,0,0,0.3);
@@ -279,18 +278,15 @@ body {
 }
 
 /* ---
-==============================================
 2. PORTFOLIO.HTML -> QUEST JOURNAL
-==============================================
 --- */
 
-/* Main layout for the portfolio content */
 .portfolio-page.style2 .content-scroll {
     display: flex;
     gap: 30px;
 }
 
-/* NEW: Vertical Tab Container */
+
 .portfolio-page.style2 .folder-container {
     display: flex;
     flex-direction: column;
@@ -303,9 +299,9 @@ body {
     gap: 10px;
 }
 
-/* NEW: "Wax Seal" Tab Buttons */
+
 .portfolio-page.style2 .folder-tab {
-    font-size: 0; /* Hide original text */
+    font-size: 0; 
     border: none;
     background: none;
     padding: 0;
@@ -315,7 +311,7 @@ body {
 }
 
 .portfolio-page.style2 .folder-tab::before {
-    content: ''; /* Will be replaced by specific content below */
+    content: '';
     font-family: var(--font-heading);
     font-size: 1.3rem;
     color: var(--parchment-bg);
@@ -328,7 +324,7 @@ body {
     text-shadow: 1px 1px 1px #000;
 }
 
-/* NEW: CSS-only text replacement */
+
 .portfolio-page.style2 .folder-tab[data-project="project-1"]::before { content: 'Quest I'; }
 .portfolio-page.style2 .folder-tab[data-project="project-2"]::before { content: 'Quest II'; }
 .portfolio-page.style2 .folder-tab[data-project="project-3"]::before { content: 'Quest III'; }
@@ -342,10 +338,10 @@ body {
 }
 
 .portfolio-page.style2 .folder-body {
-   display: none; /* The small text box is not needed for this layout */
+   display: none; 
 }
 
-/* Style for GitHub button in medieval theme */
+
 .portfolio-page.style2 .github-btn {
     display: block;
     width: auto;
@@ -409,7 +405,7 @@ body {
     line-height: 1.7;
 }
 
-/* JS-driven visibility */
+
 .portfolio-page.style2 .project-content {
     display: none;
 }
@@ -419,9 +415,7 @@ body {
 }
 
 /* ---
-==============================================
 3. QUALIFICATIONS.HTML -> GAME ACHIEVEMENTS (Timeline)
-==============================================
 --- */
 
 /* Hide original H1 and prepare for pseudo-element title */
@@ -432,7 +426,6 @@ body {
     position: relative;
 }
 
-/* Create new title with pseudo-element */
 .qualifications-page.style2 .main-content h1::before {
     content: 'Game Achievements';
     font-family: var(--font-heading);
@@ -444,16 +437,15 @@ body {
     display: block;
 }
 
-/* The main container for the timeline */
+
 .qualifications-page.style2 .skills-grid {
-    display: flex; /* Use flexbox for horizontal layout */
-    justify-content: space-around; /* Distribute items along the line */
-    align-items: center; /* Vertically align items to the center line */
+    display: flex; 
+    justify-content: space-around; 
+    align-items: center; 
     position: relative;
-    padding: 50px 0; /* Add padding to prevent cards from being cut off */
+    padding: 50px 0; 
 }
 
-/* The central horizontal line of the timeline */
 .qualifications-page.style2 .skills-grid::before {
     content: '';
     position: absolute;
@@ -466,20 +458,20 @@ body {
     z-index: 1;
 }
 
-/* Styling for each achievement/skill card */
+/* Skill Cards with Arrows */
+
 .qualifications-page.style2 .skill-card {
     background-color: rgba(245, 238, 218, 0.9);
     border: 2px solid var(--dark-wood);
-    padding: 15px; /* Reduced padding */
-    width: 14%; /* Reduced width to fit more cards */
+    padding: 15px; 
+    width: 14%; 
     text-align: center;
     box-shadow: 0 5px 10px rgba(0,0,0,0.3);
     transition: all 0.3s ease;
-    position: relative; /* For positioning the arrow */
+    position: relative; 
     z-index: 2;
 }
 
-/* The arrow pointing from the card to the timeline */
 .qualifications-page.style2 .skill-card::after {
     content: '';
     position: absolute;
@@ -490,7 +482,6 @@ body {
     transform: translateX(-50%);
 }
 
-/* Position cards ABOVE the timeline */
 .qualifications-page.style2 .skill-card:nth-child(odd) {
     transform: translateY(calc(-50% - 15px)); /* Corrected calculation */
 }
@@ -499,14 +490,12 @@ body {
     transform: translateY(calc(-50% - 15px)) scale(1.05);
 }
 
-/* Arrow for top cards (points down) */
 .qualifications-page.style2 .skill-card:nth-child(odd)::after {
     top: 100%;
     border-width: 15px 15px 0 15px;
     border-color: var(--dark-wood) transparent transparent transparent;
 }
 
-/* Position cards BELOW the timeline */
 .qualifications-page.style2 .skill-card:nth-child(even) {
     transform: translateY(calc(50% + 15px)); /* Pushes card down, aligning arrow tip */
 }
@@ -515,14 +504,12 @@ body {
     transform: translateY(calc(50% + 15px)) scale(1.05);
 }
 
-/* Arrow for bottom cards (points up) */
 .qualifications-page.style2 .skill-card:nth-child(even)::after {
     bottom: 100%;
     border-width: 0 15px 15px 15px;
     border-color: transparent transparent var(--dark-wood) transparent;
 }
 
-/* Generic hover state - NO TRANSFORM HERE to avoid overriding position */
 .qualifications-page.style2 .skill-card:hover {
     border-color: var(--gold-accent);
 }
@@ -531,17 +518,16 @@ body {
     display: none;
 }
 
-/* Reduced font sizes to fit smaller cards */
 .qualifications-page.style2 .skill-card h3 {
     font-family: var(--font-heading);
-    font-size: 1.2rem; /* Reduced font size */
+    font-size: 1.2rem;
     color: var(--text-dark);
     margin: 0 0 10px 0;
 }
 
 .qualifications-page.style2 .skill-card p {
-    font-size: 0.8rem; /* Reduced font size */
-    line-height: 1.4; /* Adjusted line height */
+    font-size: 0.8rem;
+    line-height: 1.4;
 }
 
 /* --- QUALIFICATIONS.HTML Resume & Interests (Style 2) --- */
@@ -563,7 +549,7 @@ body {
   padding: 30px;
   margin: 40px auto;
   max-width: 1100px;
-  border-radius: 0; /* Override style1 */
+  border-radius: 0;
 }
 
 .qualifications-page.style2 .interests-section h2 {
@@ -582,9 +568,7 @@ body {
 }
 
 /* ---
-==============================================
 4. SERVICE.HTML -> CHIVALROUS ACTS
-==============================================
 --- */
 
 .service-link {
@@ -593,12 +577,11 @@ body {
     display: block;
 }
 
-/* Hide original H1 and prepare for pseudo-element title */
 .service-page.style2 .main-content h1 {
-    font-size: 0; /* Hides the original text */
+    font-size: 0;
     border-bottom: none;
     padding-bottom: 0;
-    position: relative; /* Context for the pseudo-element */
+    position: relative;
     margin-bottom: 40px;
 }
 
